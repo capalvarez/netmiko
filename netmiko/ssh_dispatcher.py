@@ -5,8 +5,7 @@ from netmiko.a10 import A10SSH
 from netmiko.accedian import AccedianSSH
 from netmiko.alcatel import AlcatelAosSSH
 from netmiko.alcatel import AlcatelSrosSSH
-from netmiko.arista import AristaSSH
-from netmiko.arista import AristaFileTransfer
+from netmiko.arista import AristaSSH, AristaFileTransfer
 from netmiko.aruba import ArubaSSH
 from netmiko.avaya import AvayaErsSSH
 from netmiko.avaya import AvayaVspSSH
@@ -22,22 +21,21 @@ from netmiko.cisco import CiscoNxosSSH, CiscoNxosFileTransfer
 from netmiko.cisco import CiscoS300SSH
 from netmiko.cisco import CiscoTpTcCeSSH
 from netmiko.cisco import CiscoWlcSSH
-from netmiko.cisco import CiscoXrSSH, CiscoXrFileTransfer
+from netmiko.cisco import CiscoXrSSH
 from netmiko.coriant import CoriantSSH
 from netmiko.dell import DellForce10SSH
 from netmiko.dell import DellPowerConnectSSH
 from netmiko.dell import DellPowerConnectTelnet
+from netmiko.dell import DellDNOS6SSH
 from netmiko.eltex import EltexSSH
 from netmiko.enterasys import EnterasysSSH
 from netmiko.extreme import ExtremeSSH
 from netmiko.extreme import ExtremeWingSSH
-from netmiko.extreme import ExtremeTelnet
 from netmiko.f5 import F5LtmSSH
 from netmiko.fortinet import FortinetSSH
 from netmiko.hp import HPProcurveSSH, HPComwareSSH
-from netmiko.huawei import HuaweiSSH, HuaweiVrpv8SSH
-from netmiko.juniper import JuniperSSH
-from netmiko.juniper import JuniperFileTransfer
+from netmiko.huawei import HuaweiSSH
+from netmiko.juniper import JuniperSSH, JuniperFileTransfer
 from netmiko.linux import LinuxSSH
 from netmiko.mellanox import MellanoxSSH
 from netmiko.mrv import MrvOptiswitchSSH
@@ -83,6 +81,7 @@ CLASS_MAPPER_BASE = {
     'coriant': CoriantSSH,
     'dell_force10': DellForce10SSH,
     'dell_powerconnect': DellPowerConnectSSH,
+    'dell_dnos6': DellDNOS6SSH,
     'eltex': EltexSSH,
     'enterasys': EnterasysSSH,
     'extreme': ExtremeSSH,
@@ -93,7 +92,6 @@ CLASS_MAPPER_BASE = {
     'hp_comware': HPComwareSSH,
     'hp_procurve': HPProcurveSSH,
     'huawei': HuaweiSSH,
-    'huawei_vrpv8': HuaweiVrpv8SSH,
     'juniper': JuniperSSH,
     'juniper_junos': JuniperSSH,
     'linux': LinuxSSH,
@@ -115,9 +113,8 @@ FILE_TRANSFER_MAP = {
     'arista_eos': AristaFileTransfer,
     'cisco_asa': CiscoAsaFileTransfer,
     'cisco_ios': CiscoIosFileTransfer,
-    'cisco_nxos': CiscoNxosFileTransfer,
     'cisco_xe': CiscoIosFileTransfer,
-    'cisco_xr': CiscoXrFileTransfer,
+    'cisco_nxos': CiscoNxosFileTransfer,
     'juniper_junos': JuniperFileTransfer,
 }
 
@@ -142,7 +139,6 @@ CLASS_MAPPER['brocade_netiron_telnet'] = BrocadeNetironTelnet
 CLASS_MAPPER['cisco_ios_telnet'] = CiscoIosTelnet
 CLASS_MAPPER['dell_powerconnect_telnet'] = DellPowerConnectTelnet
 CLASS_MAPPER['generic_termserver_telnet'] = TerminalServerTelnet
-CLASS_MAPPER['extreme_telnet'] = ExtremeTelnet
 CLASS_MAPPER['ruckus_fastiron_telnet'] = RuckusFastironTelnet
 
 # Add serial drivers
